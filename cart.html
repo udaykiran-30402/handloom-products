@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart - Handloom Heritage</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="showCart()">
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Handloom Heritage</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html" class="active">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Cart Section -->
+  <main>
+    <div class="container">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <h3 id="cart-total"></h3>
+      <a href="checkout.html" class="btn">Proceed to Checkout</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Contact us at <a href="mailto:info@handloomheritage.com">info@handloomheritage.com</a></p>
+      <p>&copy; 2025 Handloom Heritage. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Script -->
+  <script>
+    function showCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsDiv = document.getElementById('cart-items');
+      cartItemsDiv.innerHTML = '';
+      let total = 0;
+
+      if(cart.length === 0){
+        cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        document.getElementById('cart-total').innerText = '';
+        updateCartCount();
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" width="120">
+          <h3>${item.name}</h3>
+          <p>₹${item.price}</p>
+          <div class="quantity-selector">
+            <button onclick="changeCartQty(${index}, -1)">-</button>
+            <input type="text" value="${item.quantity}" readonly>
+            <button onclick="changeCartQty(${index}, 1)">+</button>
+          </div>
+          <button onclick="removeFromCart(${index})" class="remove-btn">Remove</button>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+
+      document.getElementById('cart-total').innerText = `Total: ₹${total}`;
+      updateCartCount();
+    }
+
+    function changeCartQty(index, change) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if(cart[index]){
+        cart[index].quantity += change;
+        if(cart[index].quantity < 1) cart[index].quantity = 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showCart();
+      }
+    }
+
+    function removeFromCart(index){
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index,1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      showCart();
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let count = 0;
+      cart.forEach(item => count += item.quantity);
+      document.getElementById('cart-count').innerText = count;
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handloom Heritage</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+  <!-- Header with Cart and Login/Register -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Handloom Heritage Logo" class="logo-img">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
+          <li><button id="login-btn" class="login-btn">Login/Register</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="login-close">&times;</span>
+      <h2>Login / Register</h2>
+      <form id="login-form">
+        <input type="email" placeholder="Email" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Authentic Indian Handloom Products</h1>
+      <p>Explore the rich heritage of India's weaving traditions</p>
+      <img src="images/hero.jpg" alt="Handloom Products" class="hero-img">
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+  </section>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+   <section class="featured-products">
+  <div class="container">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-item" onclick="openProductDetail(1)">
+        <img src="images/product1.jpg" alt="Handloom Saree">
+        <h3>Handloom Saree</h3>
+        <p>₹2,500</p>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-item" onclick="openProductDetail(2)">
+        <img src="images/product2.jpg" alt="Handloom Shawl">
+        <h3>Handloom Shawl</h3>
+        <p>₹1,800</p>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-item" onclick="openProductDetail(3)">
+        <img src="images/product3.jpg" alt="Handloom Kurta">
+        <h3>Handloom Kurta</h3>
+        <p>₹1,200</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="product-item" data-id="1">
+  <img src="images/product1.jpg" alt="Handloom Saree">
+  <h3>Handloom Saree</h3>
+  <p>₹2,500</p>
+
+  <div class="quantity-selector">
+    <button class="minus">-</button>
+    <input type="text" value="1" class="quantity" readonly>
+    <button class="plus">+</button>
+  </div>
+
+  <button class="add-to-cart" onclick="addToCart('1', 'Handloom Saree', 2500, 'images/product1.jpg')">Add to Cart</button>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Contact us at <a href="mailto:info@handloomheritage.com">info@handloomheritage.com</a></p>
+      <p>&copy; 2025 Handloom Heritage. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
