@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: handloom-products-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        scope: run
+        sync: false
+      - key: JWT_SECRET
+        scope: run
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    staticPublishPath: public
+    routes:
+      - type: http
+        source: /
+        destination: /
+      - type: http
+        source: /api
+        destination: /api
