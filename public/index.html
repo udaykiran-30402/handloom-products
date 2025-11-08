@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handloom Products - Authentic Global Marketplace</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Handloom Marketplace</h1>
+                <p>Authentic Global Handloom Products</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="auth-section">
+                <button class="btn-secondary" id="loginBtn">Login</button>
+                <button class="btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Celebrate the Art of Handloom</h2>
+            <p>Discover authentic, handcrafted fashion products from artisans around the world.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-large">Explore Products</button>
+                <button class="btn-secondary btn-large">Become an Artisan</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="filter-section">
+                <input type="text" id="searchInput" class="search-bar" placeholder="Search products...">
+                <select id="categoryFilter" class="filter-dropdown">
+                    <option value="">All Categories</option>
+                    <option value="sarees">Sarees</option>
+                    <option value="dupattas">Dupattas</option>
+                    <option value="fabrics">Fabrics</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="home-decor">Home Decor</option>
+                </select>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <div class="loading-spinner">Loading products...</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-handloom">
+        <div class="container">
+            <h2>Why Choose Handloom?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Authentic Quality</h3>
+                    <p>Each piece is handcrafted by skilled artisans ensuring superior quality.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Support Artisans</h3>
+                    <p>Your purchase directly supports traditional artisans and their families.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable and environmentally friendly using natural materials.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Unique Designs</h3>
+                    <p>No two pieces are identical. Own something truly unique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-roles">
+        <div class="container">
+            <h2>User Roles</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h3>Buyers</h3>
+                    <p>Browse and purchase authentic handloom products from artisans worldwide.</p>
+                    <button class="btn-primary btn-sm">Shop Now</button>
+                </div>
+                <div class="role-card">
+                    <h3>Artisans</h3>
+                    <p>Showcase your handloom products to a global audience and manage inventory.</p>
+                    <button class="btn-primary btn-sm">Join Us</button>
+                </div>
+                <div class="role-card">
+                    <h3>Administrators</h3>
+                    <p>Manage platform operations and ensure quality standards.</p>
+                    <button class="btn-primary btn-sm">Admin Panel</button>
+                </div>
+                <div class="role-card">
+                    <h3>Marketing Specialists</h3>
+                    <p>Create campaigns to promote handloom products globally.</p>
+                    <button class="btn-primary btn-sm">Marketing Hub</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Handloom</h4>
+                    <p>Connecting artisans with the world through authentic handcrafted fashion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Handloom Global Marketplace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <form id="loginForm" class="form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <select required>
+                    <option value="">Select Role</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="artisan">Artisan</option>
+                    <option value="admin">Admin</option>
+                    <option value="marketing">Marketing Specialist</option>
+                </select>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>Create Account</h2>
+            <form id="signupForm" class="form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <select required>
+                    <option value="">Select Role</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="artisan">Artisan</option>
+                </select>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
